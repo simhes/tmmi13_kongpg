@@ -13,7 +13,7 @@ def cylinder_fource (th_1, th_2, l1, l2, F, e) -> float:
 t = np.r_[0:len(par.th_1)]
 
 # z(t)
-z = par.L_0 + np.sin( par.th_1 ) * par.l1 + np.sin( par.th_1 + par.th_2 ) * par.l2
+z = par.L_0 + np.sin( par.th_1 ) * par.l1 + np.sin( par.th_2 ) * par.l2
 
 plt.figure(1)
 plt.subplot(2,2,1)
@@ -21,8 +21,7 @@ plt.plot(t, z)
 plt.title('t-z')
 
 # x(t)
-x = np.cos( par.th_1 ) * par.l1 + np.cos( par.th_1 + par.th_2 ) * par.l2
-
+x = np.cos( par.th_1 ) * par.l1 + np.cos( par.th_2 ) * par.l2
 
 plt.subplot(2,2,2)
 plt.plot(t, x)
@@ -45,7 +44,7 @@ fig = plt.figure(2)
 ax = fig.add_subplot(projection='3d')
 ax.plot3D(t, x, z)
 
-ax.view_init(elev=20, azim=45, roll=10)
+ax.view_init(elev=20, azim=45, roll=0)
 ax.set_xlabel('Time')
 ax.set_ylabel('Reach [m]')
 ax.set_zlabel('Hegth [m]')
